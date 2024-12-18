@@ -11,7 +11,7 @@ function NavBar(props) {
 function Logo(props) {
     return (
     <a className="navbar-brand" href="#" onClick={() => props.setView("home")}>
-        <img style={{"width": "75px", "height": "75px"}} src="/static/chef_mistral_ai.jpg" alt="Chef Mistral AI"/>
+        <img style={{"width": "75px", "height": "75px"}} src="static/chef_mistral_ai.jpg" alt="Chef Mistral AI"/>
     </a>)
 }
 

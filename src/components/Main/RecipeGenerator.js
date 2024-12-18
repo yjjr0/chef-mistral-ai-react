@@ -78,9 +78,19 @@ function IngredientsList(props) {
 }
 
 function GetRecipe(props) {
+    const [loading, setLoading] = useState(false);
+
     async function generateRecipe() {
-        const generatedRecipe = await generateRecipeFromAI(props.ingredients.map(ingredient => ingredient.name));
-        props.setRecipe(generatedRecipe);
+        setLoading(true);
+        props.setRecipe("");
+        try {
+            const generatedRecipe = await generateRecipeFromAI(props.ingredients.map(ingredient => ingredient.name));
+            props.setRecipe(generatedRecipe);
+        } catch (error) {
+            console.error("Error generating recipe:", error);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -88,7 +98,10 @@ function GetRecipe(props) {
         <h4>Ready for a recipe?</h4>
         <div className="d-flex justify-content-between">
             <p style={{color: "grey"}}>Generate a recipe from your list of ingredients</p>
-            <button className="btn btn-sm" style={{color: "white", backgroundColor: "chocolate", height:"3em"}} onClick={generateRecipe}>Get a recipe</button>
+            <button className="btn btn-sm"
+                    style={{color: "white", backgroundColor: "chocolate",}}
+                    onClick={generateRecipe}
+                    disabled={loading}>{loading ? "Cooking..." : "Get a recipe"}</button>
         </div>
     </div>
     )

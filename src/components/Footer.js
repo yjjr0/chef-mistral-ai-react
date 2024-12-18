@@ -13,7 +13,7 @@ function Footer(props) {
                 </div>
                 <div className="row">
                     <div className="col-12 text-center">
-                        <p className="mb-0">2024 Chef Claude</p>
+                        <p className="mb-0">2024 Chef Mistral AI</p>
                     </div>
                 </div>
             </div>

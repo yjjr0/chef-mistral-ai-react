@@ -1,4 +1,4 @@
-Chef Mistral AI: This webpage was created using React and styled with Bootsrap.
+Chef Mistral AI: This webpage was created using React and styled with Bootstrap.
 
 Shopping list:
 Add, update and delete items from the list.
